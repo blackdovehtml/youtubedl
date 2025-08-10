@@ -25,6 +25,16 @@ jobs:
 
       - name: Update README.md
         run: |
+          # Create the grid HTML with markdown syntax
+          echo '<div class="grid" markdown>' > video_grid.md
+          cat videos.html >> video_grid.md
+          echo '</div>' >> video_grid.md
+
+          # Replace the section in README.md between markers
+          perl -0777 -i -pe "s|<!-- YOUTUBE:START -->.*?<!-- YOUTUBE:END -->|<!-- YOUTUBE:START -->\n$(cat video_grid.md)\n<!-- YOUTUBE:END -->|s" /home/runner/work/blackdovehtml/youtubedl/README.md
+
+      - name: Push changes
+        run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
