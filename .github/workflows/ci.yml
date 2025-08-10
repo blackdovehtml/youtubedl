@@ -37,7 +37,7 @@ jobs:
           echo '</div>' >> video_grid.md
 
           # Replace the section in README.md between markers
-          perl -0777 -i -pe "s|<!-- YOUTUBE:START -->.*?<!-- YOUTUBE:END -->|<!-- YOUTUBE:START -->\n$(cat video_grid.md)\n<!-- YOUTUBE:END -->|s" /home/runner/work/${{ github.repository }}/README.md
+          perl -0777 -i -pe "s|<!-- YOUTUBE:START -->.*?<!-- YOUTUBE:END -->|<!-- YOUTUBE:START -->\n$(cat video_grid.md)\n<!-- YOUTUBE:END -->|s" README.md
 
       - name: Push changes
         run: |
