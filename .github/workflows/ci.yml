@@ -13,6 +13,12 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+      - name: Extract repo owner and name
+        run: |
+          OWNER="${GITHUB_REPOSITORY%/*}"
+          REPO="${GITHUB_REPOSITORY#*/}"
+          echo "OWNER=$OWNER" >> $GITHUB_ENV
+          echo "REPO=$REPO" >> $GITHUB_ENV
 
       - name: Fetch latest 4 YouTube videos
         id: fetch
@@ -31,7 +37,7 @@ jobs:
           echo '</div>' >> video_grid.md
 
           # Replace the section in README.md between markers
-          perl -0777 -i -pe "s|<!-- YOUTUBE:START -->.*?<!-- YOUTUBE:END -->|<!-- YOUTUBE:START -->\n$(cat video_grid.md)\n<!-- YOUTUBE:END -->|s" /home/runner/work/blackdovehtml/youtubedl/README.md
+          perl -0777 -i -pe "s|<!-- YOUTUBE:START -->.*?<!-- YOUTUBE:END -->|<!-- YOUTUBE:START -->\n$(cat video_grid.md)\n<!-- YOUTUBE:END -->|s" /home/runner/work/${{ github.repository }}/README.md
 
       - name: Push changes
         run: |
