@@ -33,18 +33,18 @@ jobs:
           # Replace the section in README.md between markers
           #sed -i '/<!-- YOUTUBE:START -->/,/<!-- YOUTUBE:END -->/c\<!-- YOUTUBE:START -->\n'$(cat video_grid.md)'\n<!-- YOUTUBE:END -->' /home/runner/work/.github/.github/profile/README.md
           #perl -0777 -i -pe 's|<!-- YOUTUBE:START -->.*?<!-- YOUTUBE:END -->|<!-- YOUTUBE:START -->\n'$(cat video_grid.md)'\n<!-- YOUTUBE:END -->|s' /home/runner/work/.github/.github/profile/README.md
-          perl -0777 -i -pe "s|<!-- YOUTUBE:START -->.*?<!-- YOUTUBE:END -->|<!-- YOUTUBE:START -->\n$(cat video_grid.md)\n<!-- YOUTUBE:END -->|s" /home/runner/work/.github/.github/profile/README.md
+          perl -0777 -i -pe "s|<!-- YOUTUBE:START -->.*?<!-- YOUTUBE:END -->|<!-- YOUTUBE:START -->\n$(cat video_grid.md)\n<!-- YOUTUBE:END -->|s" /home/runner/work/blackdovehtml/.youtubedl/README.md
 
       - name: Push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/AG-Tech-Watch/.github.git
+          #git remote set-url origin https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/AG-Tech-Watch/.github.git
           git pull
           git add .
           git commit -m "Update latest video" || echo "No changes"
-          #git push origin main
+          git push origin main
 
-      - name: Push changes with PAT
-        run: |
-          git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/AG-Tech-Watch/.github.git HEAD:main
+      # - name: Push changes with PAT
+      #   run: |
+      #     git push https://x-access-token:${{ secrets.PAT_TOKEN }}@github.com/AG-Tech-Watch/.github.git HEAD:main
