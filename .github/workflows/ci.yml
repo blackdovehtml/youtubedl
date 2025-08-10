@@ -27,7 +27,7 @@ jobs:
           API_KEY="${{ secrets.YOUTUBE_API_KEY }}"
 
           curl -s "https://www.googleapis.com/youtube/v3/search?key=$API_KEY&channelId=$CHANNEL_ID&order=date&maxResults=5&part=snippet" \
-          | jq -r '.items[] | "<a href=\"https://www.youtube.com/watch?v=\(.id.videoId)\"><img src=\"https://img.youtube.com/vi/\(.id.videoId)/mqdefault.jpg\" alt=\"\(.snippet.title)\" width=\"20%\"></a>"' > videos.html
+          | jq -r '.items[] | "<a href=\"https://www.youtube.com/watch?v=\(.id.videoId)\"><img src=\"https://img.youtube.com/vi/\(.id.videoId)/mqdefault.jpg\" alt=\"\(.snippet.title)\" width=\"18%\"></a>"' > videos.html
 
       - name: Update README.md
         run: |
