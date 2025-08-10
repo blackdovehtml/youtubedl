@@ -2,7 +2,7 @@ name: Update Latest Videos New
 
 on:
   schedule:
-    - cron: '*/30 * * * *' #every 15 min
+    - cron: '0 * * * *' #every 1 hour
   workflow_dispatch:
 permissions:
   contents: write
