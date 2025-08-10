@@ -2,7 +2,7 @@
 
 
 youtube-dl - download videos from youtube.com or other video platforms
-## 🎥 Latest Videos
+# 🎥 Latest Videos
 <!-- YOUTUBE:START -->
 <div class="grid" markdown>
 <a href="https://www.youtube.com/watch?v=R1c8NX-Vllg"><img src="https://img.youtube.com/vi/R1c8NX-Vllg/mqdefault.jpg" alt="NEVER Charge Your Phone AGAIN? 2025 Battery Revolution! #Tech" width="18%"></a>
@@ -12,6 +12,7 @@ youtube-dl - download videos from youtube.com or other video platforms
 <a href="https://www.youtube.com/watch?v=KcdjBOhzK34"><img src="https://img.youtube.com/vi/KcdjBOhzK34/mqdefault.jpg" alt="Forget Power Banks! 7,000mAh Phones Redefine Battery Life #TechNews" width="18%"></a>
 </div>
 <!-- YOUTUBE:END -->
+
 - [INSTALLATION](#installation)
 - [DESCRIPTION](#description)
 - [OPTIONS](#options)
