@@ -1,4 +1,4 @@
-name: Update Latest Videos New
+name: Update Latest Videos
 
 on:
   schedule:
